@@ -9,6 +9,7 @@ import socket
 import xbmcvfs
 import xbmcgui
 import unicodedata
+import tempfile
 
 from utilities import *
 
@@ -461,7 +462,12 @@ class GUI( xbmcgui.WindowXMLDialog ):
   def keyboard(self, parent):
     dir, self.year = xbmc.getCleanMovieTitle(self.file_original_path, self.parsearch)
     if not parent:
-      if self.man_search_str != "":
+	  subhelper = open(tempfile.gettempdir() + '/subhelper.dat')
+	  srchstr = subhelper.read()
+	  subhelper.close()
+	  if srchstr:
+		pass
+      elif self.man_search_str != "":
         srchstr = self.man_search_str
       else:
         srchstr = "%s (%s)" % (dir,self.year,)  
