@@ -159,7 +159,7 @@ def LegendasTVMovies(file_original_path, title, year, lang1, lang2, lang3 ):
 
 	# Initiating variables and languages.
 	lang1, ltv_flag1, langid1, lang2, ltv_flag2, langid2, lang3, ltv_flag3, langid3 = LegendasLanguage(lang1,lang2,lang3)
-	tipo = "2"
+	tipo = "1"
 	subtitles, sub1, sub2, sub3, PartialSubtitles = [], [], [], [], []
 	
 	# Try to get the original movie name from the XBMC database, 
