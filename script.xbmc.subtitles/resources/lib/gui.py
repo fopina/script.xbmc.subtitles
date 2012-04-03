@@ -462,11 +462,14 @@ class GUI( xbmcgui.WindowXMLDialog ):
   def keyboard(self, parent):
     dir, self.year = xbmc.getCleanMovieTitle(self.file_original_path, self.parsearch)
     if not parent:
-	  subhelper = open(tempfile.gettempdir() + '/subhelper.dat')
-	  srchstr = subhelper.read()
-	  subhelper.close()
-	  if srchstr:
-		pass
+      try:
+        subhelper = open(tempfile.gettempdir() + '/subhelper.dat')
+        srchstr = subhelper.read()
+        subhelper.close()
+      except:
+        srchstr = None
+      if srchstr:
+        pass
       elif self.man_search_str != "":
         srchstr = self.man_search_str
       else:
